@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:assets_audio_player/assets_audio_player.dart';
 
 void main() => runApp(MarimbaApp());
 
@@ -8,7 +9,18 @@ class MarimbaApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
-          child: Container(),
+          child: Center(
+            child: TextButton(
+              onPressed: ()  {
+                AssetsAudioPlayer.newPlayer().open(
+                  Audio("assets/nota1.wav"),
+                 autoPlay: true,
+                  showNotification: true,
+                );
+
+              }, child: Text('Clique em mim!'),
+            ),
+          ),
         ),
       ),
     );
